@@ -1,5 +1,18 @@
 /// <reference path="./global.d.ts" />
-// @ts-check
+
+
+/**
+ * @param {any} name
+ * @param {any} age
+ * @param {any} ticketId
+ */
+function Visitor(name, age, ticketId) {
+  this.name = name;
+  this.age = age;
+  this.ticketId = ticketId;
+
+}
+
 
 /**
  * Creates a new visitor.
@@ -10,7 +23,7 @@
  * @returns {Visitor} the visitor that was created
  */
 export function createVisitor(name, age, ticketId) {
-  throw new Error('Remove this line and implement the function');
+  return new Visitor(name, age, ticketId);
 }
 
 /**
@@ -20,7 +33,9 @@ export function createVisitor(name, age, ticketId) {
  * @returns {Visitor} the visitor without a ticket
  */
 export function revokeTicket(visitor) {
-  throw new Error('Remove this line and implement the function');
+  visitor.ticketId = null;
+
+  return visitor;
 }
 
 /**
@@ -31,8 +46,22 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
-  throw new Error('Remove this line and implement the function');
+  let result = "";
+
+  if (tickets[ticketId] === null) {
+    result = "not sold";
+  }
+  else if (tickets[ticketId])
+  {
+    result = "sold to " + tickets[ticketId];
+  }
+  else {
+    result = "unknown ticket id";
+  }
+
+  return result;
 }
+
 
 /**
  * Determines the status a ticket has in the ticket tracking object
@@ -43,7 +72,19 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  throw new Error('Remove this line and implement the function');
+  let result = "";
+  
+  if (!tickets[ticketId]?.toString)
+  {
+    result = "invalid ticket !!!";
+  }
+  else {
+    result = tickets[ticketId];
+  }
+
+  return result;
+
+
 }
 
 /**
@@ -53,5 +94,12 @@ export function simpleTicketStatus(tickets, ticketId) {
  * @returns {string | undefined} version
  */
 export function gtcVersion(visitor) {
-  throw new Error('Remove this line and implement the function');
+  if (visitor.gtc) {
+    return visitor.gtc["version"];
+  }
+  else {
+    return undefined
+  }
+
+  
 }
