@@ -24,10 +24,18 @@ export function needsLicense(kind) {
  * @returns {string} a sentence of advice which option to choose
  */
 export function chooseVehicle(option1, option2) {
-  let options = [option1, option2]
-  let sortedOption = options.sort()
 
-  return sortedOption[0] + " is clearly the better choice.";
+  // if (option1 < option2) {
+  //   return option1 + betterOptions;
+  // } else {
+  //   return option2 + betterOptions;
+  // }
+  
+  const betterOptions = " is clearly the better choice.";
+  
+  let choise = option1 < option2 ? option1 : option2;
+  return choise + betterOptions;
+
 }
 
 /**
