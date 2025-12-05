@@ -11,7 +11,11 @@
  * @returns {number} time in minutes
  */
 export function timeToMixJuice(name) {
-  throw new Error('Remove this line and implement the function');
+    const expr = name;
+    switch (expr) {
+      case ""
+    }
+
 }
 
 /**
