@@ -14,7 +14,11 @@
  * @returns {string} the text to print on the badge
  */
 export function printBadge(id, name, department) {
-
+ 
   // Pour id, si c'est null, ca envoie false a la condition grace au !!, donc ca met juste "", si c'est pas false sa met juste le id. Et pour le département, si c'est null, ca renvoie true grace au simple ! donc ca retourne "OWNER" sinon "MARKETING"
-  return `${!!id ? `[${id}] ` : ""}${name} - ${!department ? "OWNER" : "MARKETING"}`;
+  
+  const prefix = !!id ? `[${id}] ` : "";
+  const dept = !department ? "OWNER" : "MARKETING";
+  
+  return `${prefix}${name} - ${dept}`;
 }
